@@ -140,7 +140,7 @@ app.get('/orders', checkAuthAndAdmin, OrderController.getAll);
 app.get('/orders/:id', checkAuthAndAdmin, OrderController.getOne);
 app.delete('/orders/:id', checkAuthAndAdmin, OrderController.remove);
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     return console.log(err);
   }
