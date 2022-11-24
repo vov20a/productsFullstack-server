@@ -157,7 +157,8 @@ export const remove = async (req, res) => {
             message: 'Товар не найден',
           });
         }
-        if (doc.productUrl.includes('http://localhost:4444')) {
+        // if (doc.productUrl.includes('http://localhost:4444')) {
+        if (doc.productUrl.includes(process.env.REACT_APP_API_URL)) {
           const fileName = doc.productUrl.match(/uploads\/\d?\.\w+$/);
           const filePath = path.resolve(fileName[0]);
           fs.unlink(filePath, (err) => {
