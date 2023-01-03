@@ -1,2 +1,2 @@
 REACT_APP_API_URL=host url
-REACT_APP_API_MAIL=url+/password
+REACT_APP_API_MAIL=frontend url+/password
