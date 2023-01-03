@@ -7,7 +7,7 @@ export const postMail = async (req, res) => {
 
     const mail = await send(email, message);
     return res.json({ mail });
-  } catch (e) {
+  } catch (err) {
     console.log(err);
     res.status(400).json({
       message: 'Не удалось отправить письмо',

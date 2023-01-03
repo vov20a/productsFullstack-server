@@ -21,10 +21,10 @@ import {
 } from './controllers/index.js';
 
 mongoose
-  // .connect(
-  //   'mongodb+srv://admin:AlexeevVova1960@cluster0.7t7uam2.mongodb.net/vova?retryWrites=true&w=majority',
-  // )
-  .connect(process.env.MONGODB_URI)
+  .connect(
+    'mongodb+srv://admin:AlexeevVova1960@cluster0.7t7uam2.mongodb.net/vova?retryWrites=true&w=majority',
+  )
+  // .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB OK'))
   .catch((err) => console.log('DB error:', err));
 

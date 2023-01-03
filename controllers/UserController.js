@@ -145,7 +145,7 @@ export const checkEmail = async (req, res) => {
     }
     const message = `<h2>Hello ${email}</h2>
                     <p>Ссылка действительна 10 минут</p>
-                    <a href="http://localhost:3000/password">Перейдите по ссылке</a>`;
+                    <a href=${process.env.REACT_APP_API_MAIL}>Перейдите по ссылке</a>`;
 
     await send(email, message);
     res.json(email);
