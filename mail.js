@@ -77,8 +77,8 @@ let transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: 'vov20a@mail.ru',
-    pass: 'NxfbtrNWZXT2fUxMh2A6', // generated email password
+    user: process.env.EMAIL_HOST_USER,
+    pass: process.env.EMAIL_HOST_PASSWORD, // generated email password
   },
   //вход через временный личный кабинет от nodemailer
   // host: 'smtp.ethereal.email',
