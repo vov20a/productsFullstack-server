@@ -159,9 +159,9 @@ export const remove = async (req, res) => {
         }
 
         // if (doc.productUrl.includes('http://localhost:4444')) {
-        if (doc.productUrl.includes(process.env.REACT_APP_API_URL)) {
-          const fileName = doc.productUrl.match(/uploads\/[\w]+\.[\w]+/);
-          const filePath = path.resolve(fileName[0]);
+        if (doc.productUrl) {
+          // const fileName = doc.productUrl.match(/uploads\/[\w]+\.[\w]+/);
+          const filePath = path.resolve('uploads', doc.productUrl);
           // console.log(filePath);
           fs.unlink(filePath, (err) => {
             if (err) throw err;
