@@ -56,8 +56,10 @@ export const getAll = async (req, res) => {
     let sort = req.query?.sort;
     sort = sort ? `{"${sort}": 1 }` : '{"rating":1}';
 
+    // const search = req.query?.search;
+    // const input = search ? { $text: { $search: search } } : {};
     const search = req.query?.search;
-    const input = search ? { $text: { $search: search } } : {};
+    const input = search ? { title: new RegExp(search, 'i') } : {};
 
     const products = await ProductModel.find(input)
       .sort(JSON.parse(sort))
@@ -95,8 +97,10 @@ export const getProductsByCategory = async (req, res) => {
     let sort = req.query?.sort;
     sort = sort ? `{"${sort}": 1 }` : '';
 
+    // const search = req.query?.search;
+    // const input = search ? { $text: { $search: search } } : {};
     const search = req.query?.search;
-    const input = search ? { $text: { $search: search } } : {};
+    const input = search ? { title: new RegExp(search, 'i') } : {};
 
     const products = await ProductModel.find({ $and: [{ categoryId: categoryId }, input] })
       .sort(JSON.parse(sort))

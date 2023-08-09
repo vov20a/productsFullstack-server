@@ -43,7 +43,11 @@ const upload = multer({ storage });
 app.use(express.json());
 
 //для управления портами-разрешает frontend
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://pizzavova.onrender.com',
+  }),
+);
 
 app.use('/uploads', express.static('uploads'));
 
